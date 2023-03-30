@@ -5,9 +5,10 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 const Card = (props) => {
     const {img, userImg, name, time, date, title} = props.card;
+    const addReadTime = props.addReadTime;
     return (
         <div>
-            <div  className="card my-3 p-0">
+            <div  className="card mb-4 p-0">
                 <img src={img} className="card-img-top" alt=""/>
                 <div className="card-body">
                     <div className='d-flex justify-content-between'>
@@ -21,7 +22,7 @@ const Card = (props) => {
                         <h6><small>{time} min read <FontAwesomeIcon className='btn' icon={faBookmark} /></small></h6>
                     </div>
                     <h2 className="card-text">{title}</h2>
-                    <a href="#" className="btn btn-warning">Mark as read</a>
+                    <a onClick={() => addReadTime(props.card)} href="#" className="btn btn-warning">Mark as read</a>
                 </div>
             </div>
         </div>
