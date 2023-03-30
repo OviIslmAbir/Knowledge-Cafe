@@ -4,6 +4,7 @@ import Side from '../Side-bar/Side';
 
 const Main = () => {
     const[time , setTime] = useState([])
+    const[bookMark , setBookMark] = useState([])
     const [cards , setCards] = useState([])
     useEffect(()=>{
         fetch('data.json')
@@ -14,16 +15,20 @@ const Main = () => {
         const newTime = [...time, card]
         setTime(newTime)
     }
+    const addBookMark = (card) =>{
+        const newBookMark = [...bookMark, card]
+        setBookMark(newBookMark)
+    }
     return (
         <div className='container'>
             <div className="row">
                <div className="col-lg-8 my-3">
                 {
-                    cards.map(card => <Card addReadTime = {addReadTime} key={card.id} card={card}></Card>)
+                    cards.map(card => <Card addBookMark ={addBookMark} addReadTime = {addReadTime} key={card.id} card={card}></Card>)
                 }
                </div>
                <div className="col-lg-4 my-3">
-                  <Side time={time}></Side>
+                  <Side bookMark ={bookMark} time={time}></Side>
                </div>
             </div>
         </div>
