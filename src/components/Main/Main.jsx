@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import Question from '../Question/Question';
 import Side from '../Side-bar/Side';
 
 const Main = () => {
@@ -30,6 +31,7 @@ const Main = () => {
                <div className="col-lg-4 my-3">
                   <Side bookMark ={bookMark} time={time}></Side>
                </div>
+               <Question></Question>
             </div>
         </div>
     );
