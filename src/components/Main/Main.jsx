@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Question from '../Question/Question';
 import Side from '../Side-bar/Side';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Main = () => {
     const[time , setTime] = useState([])
@@ -19,6 +22,7 @@ const Main = () => {
     const addBookMark = (card) =>{
         const newBookMark = [...bookMark, card]
         setBookMark(newBookMark)
+        toast("Successfully bookmark added") 
     }
     return (
         <div className='container'>

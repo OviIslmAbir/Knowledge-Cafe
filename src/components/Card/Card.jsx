@@ -2,6 +2,9 @@ import React from 'react';
 import './Card.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Card = (props) => {
     const {img, userImg, name, time, date, title} = props.card;
@@ -20,10 +23,11 @@ const Card = (props) => {
                                 <h6><small>{date}</small></h6>
                             </div>
                         </div>
-                        <h6><small>{time} min read <FontAwesomeIcon onClick={() => addBookMark(props.card)} className='btn' icon={faBookmark} /></small></h6>
+                        <h6><small>{time} min read <FontAwesomeIcon onClick={() => addBookMark(props.card)} className='btn' icon={faBookmark} /><ToastContainer autoClose={900}/>
+                        </small></h6>
                     </div>
                     <h2 className="card-text">{title}</h2>
-                    <a onClick={() => addReadTime(props.card)} href="#" className="btn btn-warning">Mark as read</a>
+                    <button onClick={() => addReadTime(props.card)} className="btn btn-warning">Mark as read</button>
                 </div>
             </div>
         </div>
